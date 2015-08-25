@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/file_browse_frame"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/path_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_path"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <HorizontalScrollView
+            android:id="@+id/navigation_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fillViewport="true" >
+
+            <LinearLayout
+                android:id="@+id/tabs_holder"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+
+        <ProgressBar
+            android:id="@+id/refresh_loadingprogressbar"
+            style="@android:style/Widget.Holo.Light.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+        
+        <include layout="@layout/file_framelayout"/>
+        
+        <!-- android:layout_marginBottom="25px" android:gravity="center" -->
+        <!-- show category icons: music, video, picuture, etc -->
+
+        <LinearLayout
+            android:id="@+id/category_page"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:id="@+id/search_item"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible" >
+
+                <View
+                    android:layout_width="0px"
+                    android:layout_height="0px"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true" >
+
+                    <requestFocus />
+                </View>
+
+                <SearchView
+                    android:id="@+id/search_view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    android:iconifiedByDefault="false"
+                    android:imeOptions="flagNoExtractUi|flagNoFullscreen"
+                    android:inputType="textCapWords" />
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dip"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="12dp"
+                android:layout_weight="1" >
+
+                <LinearLayout
+                    android:id="@+id/category_music"
+                    style="@style/CategoryButtonStyle"
+                    android:layout_alignParentLeft="true" >
+
+                    <ImageView
+                        style="@style/CategoryButtonIconStyle"
+                        android:src="@drawable/category_button_music" />
+
+                    <TextView
+                        android:id="@+id/category_music_count"
+                        style="@style/CategoryButtonTextStyle"
+                        android:text="@string/category_music" />
+
+                    <TextView
+                        android:id="@+id/category_music_size"
+                        style="@style/CategoryButtonCountTextStyle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/category_picture"
+                    style="@style/CategoryButtonStyle"
+                    android:layout_centerHorizontal="true" >
+
+                    <ImageView
+                        style="@style/CategoryButtonIconStyle"
+                        android:src="@drawable/category_button_picture" />
+
+                    <TextView
+                        android:id="@+id/category_picture_count"
+                        style="@style/CategoryButtonTextStyle"
+                        android:text="@string/category_picture" />
+
+                    <TextView
+                        android:id="@+id/category_picture_size"
+                        style="@style/CategoryButtonCountTextStyle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/category_video"
+                    style="@style/CategoryButtonStyle"
+                    android:layout_alignParentRight="true" >
+
+                    <ImageView
+                        style="@style/CategoryButtonIconStyle"
+                        android:src="@drawable/category_button_video" />
+
+                    <TextView
+                        android:id="@+id/category_video_count"
+                        style="@style/CategoryButtonTextStyle"
+                        android:text="@string/category_video" />
+
+                    <TextView
+                        android:id="@+id/category_video_size"
+                        style="@style/CategoryButtonCountTextStyle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/category_document"
+                    style="@style/CategoryButtonStyle"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/category_music"
+                    android:paddingTop="10dp" >
+
+                    <ImageView
+                        style="@style/CategoryButtonIconStyle"
+                        android:src="@drawable/category_button_docs" />
+
+                    <TextView
+                        android:id="@+id/category_document_count"
+                        style="@style/CategoryButtonTextStyle"
+                        android:text="@string/category_document" />
+
+                    <TextView
+                        android:id="@+id/category_document_size"
+                        style="@style/CategoryButtonCountTextStyle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/category_apk"
+                    style="@style/CategoryButtonStyle"
+                    android:layout_below="@+id/category_picture"
+                    android:layout_centerHorizontal="true"
+                    android:paddingTop="10dp" >
+
+                    <ImageView
+                        style="@style/CategoryButtonIconStyle"
+                        android:src="@drawable/category_button_apk" />
+
+                    <TextView
+                        android:id="@+id/category_apk_count"
+                        style="@style/CategoryButtonTextStyle"
+                        android:text="@string/category_apk" />
+
+                    <TextView
+                        android:id="@+id/category_apk_size"
+                        style="@style/CategoryButtonCountTextStyle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/category_theme"
+                    style="@style/CategoryButtonStyle"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/category_video"
+                    android:paddingTop="10dp" >
+
+                    <ImageView
+                        style="@style/CategoryButtonIconStyle"
+                        android:src="@drawable/category_button_theme" />
+
+                    <TextView
+                        android:id="@+id/category_theme_count"
+                        style="@style/CategoryButtonTextStyle"
+                        android:text="@string/category_theme" />
+
+                    <TextView
+                        android:id="@+id/category_theme_size"
+                        style="@style/CategoryButtonCountTextStyle" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dip"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingTop="5dip" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/categoryBar0_capacity"
+                        style="@style/InformationTextStyle" />
+
+                    <TextView
+                        android:id="@+id/categoryBar0_available"
+                        style="@style/InformationTextStyle"
+                        android:layout_toRightOf="@+id/categoryBar0_capacity"
+                        android:paddingLeft="12dp" />
+
+                    <ProgressBar
+                        android:id="@+id/refresh_category_progress"
+                        style="@android:style/Widget.Holo.Light.ProgressBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <com.lewa.filemanager.CategoryBar
+                    android:id="@+id/category_bar0"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/categorybar_height"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="0dip"
+                    android:layout_marginLeft="0dp" >
+                </com.lewa.filemanager.CategoryBar>
+
+                <LinearLayout
+                    android:id="@+id/categoryinfo_system"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dip"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                     >
+
+                    <TextView
+                        android:id="@+id/categoryBar1_capacity"
+                        style="@style/InformationTextStyle" />
+
+                    <TextView
+                        android:id="@+id/categoryBar1_available"
+                        style="@style/InformationTextStyle"
+                        android:paddingLeft="12dp" />
+                </LinearLayout>
+
+                <com.lewa.filemanager.CategoryBar
+                    android:id="@+id/category_bar1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/categorybar_height"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="0dip"
+                    android:layout_marginLeft="0dp"
+                    android:visibility="gone" >
+                </com.lewa.filemanager.CategoryBar>
+
+                <LinearLayout
+                    android:id="@+id/categoryBarOtgContainer"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dip"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/categoryBarOtg_capacity"
+                            style="@style/InformationTextStyle" />
+                        <!-- android:drawableLeft="@drawable/sd_card_icon" -->
+
+                        <TextView
+                            android:id="@+id/categoryBarOtg_available"
+                            style="@style/InformationTextStyle"
+                            android:paddingLeft="12dp" />
+                    </LinearLayout>
+
+                    <com.lewa.filemanager.CategoryBar
+                        android:id="@+id/category_barOtg"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/categorybar_height"
+                        android:layout_gravity="bottom" >
+                    </com.lewa.filemanager.CategoryBar>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Use default cancel style: 2012.11.05 -->
+    
+    <include layout="@layout/layout_paste"/>
+
+</LinearLayout>

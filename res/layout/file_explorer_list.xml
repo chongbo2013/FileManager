@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/file_browse_frame"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- Lewa Path -->
+    <!-- android:background="#ebebeb" @drawable/button -->
+
+    <RelativeLayout
+        android:id="@+id/path_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_path"
+        android:orientation="horizontal"
+        android:paddingLeft="5dip" >
+
+        <!-- android:layout_gravity="bottom" -->
+
+        <HorizontalScrollView
+            android:id="@+id/navigation_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center"
+            android:layout_toLeftOf="@+id/refresh_loadingprogressbar"
+            android:fillViewport="true" >
+
+            <LinearLayout
+                android:id="@+id/tabs_holder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:textColor="?android:attr/textColorPrimary" />
+        </HorizontalScrollView>
+
+        <ProgressBar
+            android:id="@+id/refresh_loadingprogressbar"
+            style="@android:style/Widget.Holo.Light.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:visibility="gone" />
+    </RelativeLayout>
+    <!--
+            android:divider="#D3D3D3"
+            android:dividerHeight="0dp"
+    -->
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+        
+        <include layout="@layout/file_framelayout"/>
+    </FrameLayout>
+
+    <!-- Use default cancel style: 2012.11.05 -->
+    <include layout="@layout/layout_paste"/>
+
+    <LinearLayout
+        android:id="@+id/pick_operation_bar"
+        style="@style/BottomButtonBar"
+        android:visibility="gone" >
+
+        <Button
+            android:id="@+id/button_pick_confirm"
+            style="@style/BottomButton.Left"
+            android:text="@string/confirm" />
+
+        <Button
+            android:id="@+id/button_pick_cancel"
+            style="@style/BottomButton.Right"
+            android:text="@string/operation_cancel" />
+    </LinearLayout>
+
+</LinearLayout>

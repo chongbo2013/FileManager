@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <com.lewa.filemanager.ItemHighLightScope
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginRight="35dp"
+        android:paddingBottom="12dip" >
+
+        <TextView
+            android:id="@+id/date_header_text"
+            style="@style/ContactListSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dip"
+            android:layout_marginRight="0dip" />
+
+        <ImageView
+            android:id="@+id/file_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/date_header_text"
+            android:layout_gravity="center"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dip"
+            android:gravity="center"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/file_image_frame"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignTop="@id/file_image"
+            android:layout_below="@id/date_header_text"
+            android:layout_gravity="center"
+            android:layout_marginLeft="12dp"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/file_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/file_image"
+            android:layout_below="@id/date_header_text"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@id/file_image"
+            android:singleLine="true"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/file_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/file_name"
+            android:layout_marginLeft="5dip"
+            android:layout_toRightOf="@id/file_name"
+            android:singleLine="true"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/apk_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/file_name"
+            android:layout_below="@id/file_name"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/modified_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/file_name"
+            android:layout_gravity="left"
+            android:layout_toRightOf="@id/apk_version"
+            android:gravity="left"
+            android:singleLine="true"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/file_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/file_name"
+            android:layout_gravity="left"
+            android:layout_marginLeft="14dip"
+            android:layout_toRightOf="@id/modified_time"
+            android:gravity="left"
+            android:singleLine="true"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/install_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/file_name"
+            android:layout_gravity="left"
+            android:layout_marginLeft="14dip"
+            android:layout_toRightOf="@id/file_size"
+            android:gravity="left"
+            android:singleLine="true"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="12sp"
+            android:visibility="gone" />
+    </com.lewa.filemanager.ItemHighLightScope>
+
+        <CheckBox
+        android:id="@+id/file_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right"
+        android:layout_marginRight="14dip"
+        android:contentDescription="@string/app_name"
+        android:focusable="false"
+        android:gravity="right"
+        android:scaleType="fitCenter" >
+    </CheckBox>
+        <!--             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" -->
+</FrameLayout>

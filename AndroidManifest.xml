@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lewa.filemanager"
+    android:versionCode="1"
+    android:versionName="1.0"
+    android:sharedUserId="android.uid.system">  
+
+    <uses-sdk android:minSdkVersion="14" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.DELETE_PACKAGES" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.GLOBAL_SEARCH" />	
+	<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>	
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+    <uses-permission android:name="android.permission.CLEAR_APP_USER_DATA" />    
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <uses-permission android:name="android.permission.READ_FRAME_BUFFER" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.HOTKNOT" />
+    <application
+        android:name="com.lewa.filemanager.FileManagerApplication"
+        android:icon="@drawable/folder_icon"
+        android:label="@string/app_name"
+        windowActionModeOverlay="true"
+        android:theme="@style/Theme.FileManagerV5StyleNew">
+        <activity
+            android:name=".FileManagerMainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            windowActionModeOverlay="true"
+             android:theme="@style/Theme.FileManagerV5StyleNew"
+            android:screenOrientation="portrait" 
+            android:windowSoftInputMode="adjustPan" >
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter >
+                <action android:name="android.intent.action.PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+
+                <data android:scheme="file" />
+            </intent-filter>
+            <intent-filter >
+                <action android:name="android.intent.action.GET_CONTENT" />
+                <category android:name="android.intent.category.OPENABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/lewa-theme" />
+                <data android:mimeType="audio/*" />
+                <data android:mimeType="video/*" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter >
+                <action android:name="com.lewa.filemanager.PICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter >
+                <action android:name="view_directory" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="file" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.lewa.search.LewaSearchActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name1"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.FileManagerV5StyleNew">
+            <intent-filter >
+                <action android:name="android.intent.action.PICK" />
+            </intent-filter>
+        </activity>
+        
+<!--     android:windowSoftInputMode="adjustResize"    <activity android:name="com.lewa.search.SearchActivity" >
+            <intent-filter >
+                <action android:name="android.intent.action.SEARCH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity> -->
+
+        <activity
+            android:label="@string/menu_setting"
+            android:launchMode="singleTop"
+            android:name=".FileManagerPreferenceActivity"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value=".SearchActivity" />
+
+        <service android:name="com.lewa.filemanager.FTPServerService" />
+        
+        <!-- For search  -->
+        <activity
+            android:name="com.lewa.search.LewaSearchSettingActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_setting">
+
+        </activity>
+        
+        <activity 
+            android:name=".LewaSearchInfoSettingActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_setting_info"
+           >
+
+        </activity>
+        
+        <activity
+            android:name="com.lewa.search.LewaSearchAboutActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_setting_about"> 
+
+        </activity>
+        
+        <!-- this is for shortcut on the desktop. -->
+        <!-- <receiver android:name="com.lewa.search.widget.SearchWidgetProvider">
+			<intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+			</intent-filter>
+			<meta-data android:name="android.appwidget.provider"
+				android:resource="@xml/widget_config" />
+		</receiver> -->
+    </application>
+
+    
+</manifest>

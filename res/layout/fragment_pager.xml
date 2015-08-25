@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <!--
+         <lewa.widget.PagerHeader
+        android:id="@+id/indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="30dip"
+        android:background="#ffffff"
+        android:gravity="center_vertical" />
+    -->
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <LinearLayout
+            android:id="@+id/main_layout_paste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:divider="?android:attr/dividerHorizontal"
+            android:dividerPadding="0dip"
+            android:minHeight="48dip"
+            android:orientation="vertical"
+            android:showDividers="beginning"
+            android:visibility="gone" >
+
+            <LinearLayout
+                style="?android:attr/buttonBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:measureWithLargestChild="true"
+                android:orientation="horizontal" >
+
+                <!-- style="?android:attr/buttonBarStyle" -->
+
+                <Button
+                    android:id="@+id/pastebar_cancel"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:minHeight="48dip"
+                    android:text="@string/cancel"
+                    android:textSize="14sp" />
+                <!--
+            style="?android:attr/buttonBarButtonStyle" style="?android:attr/borderlessButtonStyle"
+            @android:style/Widget.Button
+                -->
+
+                <Button
+                    android:id="@+id/toolbar_paste"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:minHeight="48dip"
+                    android:text="@string/paste"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="bottom"
+    android:background="#C1CDC1" >
+    <!--
+    <group android:id="@+id/Group_delete" >
+        <item
+            android:id="@+id/action_select_all"
+            android:layout_alignParentBottom="true"
+            android:background="#ebebeb"
+            app:showAsAction="ifRoom"
+            android:title="@string/operation_selectall"/>
+    </group>
+-->
+    <item
+        android:id="@+id/action_delete"
+        android:layout_alignParentBottom="true"
+        android:background="#ebebeb"
+        android:icon="@drawable/lewa_ic_folder_delete"
+        app:showAsAction="ifRoom"
+        android:title="@string/operation_delete"/>
+    <item
+        android:id="@+id/action_copy"
+        android:icon="@drawable/lewa_ic_folder_copy"
+        app:showAsAction="ifRoom"
+        android:title="@string/operation_copy"/>
+    <item android:id="@+id/action_hotknot"
+        android:icon="@drawable/ic_hotknot"
+        app:showAsAction="ifRoom"
+        android:title="@string/hotknot"/>
+    <item
+        android:id="@+id/action_move"
+        android:icon="@drawable/lewa_ic_folder_cut"
+        app:showAsAction="ifRoom"
+        android:title="@string/operation_move"/>
+    <item
+        android:id="@+id/action_send"
+        android:icon="@drawable/lewa_ic_folder_send"
+        app:showAsAction="never"
+        android:title="@string/operation_send"/>
+    <item
+        android:id="@+id/action_rename"
+        app:showAsAction="never"
+        android:title="@string/menu_rename"/>
+    <item
+        android:id="@+id/action_fileinfo"
+        app:showAsAction="never"
+        android:title="@string/menu_fileinfo" />
+</menu>
